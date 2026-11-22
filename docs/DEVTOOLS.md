@@ -89,7 +89,7 @@ run of frames seen), so there is no threshold to set.
 runs before the engine starts. With the tools closed it keeps only small bounded rings:
 - **spans:** 65,536 entries in typed arrays; names interned, at most 65,535. Lanes: `interface`, `tasks`, `phases`,
   `display`, `long tasks`, `input`;
-- **logs:** 4,096 rows. It captures the console (a `[module]` prefix names the module), uncaught errors and rejections;
+- **logs:** 4,096 rows. It captures the console (a `odule]` prefix names the module), uncaught errors and rejections;
 - **workers:** at most 512 rows, each with its messages in and out and its errors;
 - **long tasks and slow inputs** (input over 16 ms), from the browser's own observers;
 - **live parameters,** with the values kept in `localStorage` for this developer profile.
@@ -207,7 +207,7 @@ counts its private bytes) is split into parts:
 
 | Part | What | Read from |
 | --- | --- | --- |
-| engine memory | the engine's WebAssembly memory, all of it: in use, the frame cache and pictures waiting among it, and the free space it grew to and keeps ([memory.md](engine/memory.md#the-high-water-mark)) | `engine.memory()` |
+| engine memory | the engine's WebAssembly memory, all of it: in use, the frame cache and pictures waiting among it, and the free space it grew to and keeps (emory.md](engine/memory.md#the-high-water-mark)) | `engine.memory()` |
 | JavaScript heap | the interface thread's V8 heap, committed (in use under it) | the inspector's `Runtime.getHeapUsage`, else `performance.memory` |
 | array buffers | typed arrays the interface thread holds outside its heap, by owner, and the rest when the thread's total is known | the owners; the thread's `backingStorageSize` |
 | pictures | canvases read often by script and image bitmaps, kept in this process | the early script |
@@ -287,6 +287,9 @@ the developer pipe, which only the current user reaches, gives one. A profiling 
 
 `node scripts/styk-dev.mjs <op> [json]` is the client. `trace.save '{"path": "x.json"}'` stops a capture and writes
 the Perfetto file.
+
+`node scripts/styk-mcp.mjs` serves the same channel as a Model Context Protocol server, so the tools of an MCP client
+reach these operations wherever it is connected: [MCP.md](MCP.md) says how.
 
 ## Measuring from the command line
 
