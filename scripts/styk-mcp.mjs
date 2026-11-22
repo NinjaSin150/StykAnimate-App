@@ -213,7 +213,7 @@ export const TOOLS = [
 
   tool('set_view', 'Set the view',
     'Sets the view\'s pan and zoom directly: x, y and scale, any of them. The answer reports all three.',
-    {properties: {x: number('The view\'s x.'), y: number('The view\'s y.'), scale: number('The view\'s zoom, above 0.')}} ,
+    {properties: {x: number('The view\'s x.'), y: number('The view\'s y.'), scale: number('The view\'s zoom, above 0.')}},
     {op: 'view'}, {args: args => ({args})}),
 
   tool('wait_until_settled', 'Wait until the stage settles',
