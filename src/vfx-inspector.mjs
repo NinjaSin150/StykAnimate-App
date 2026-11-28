@@ -37,7 +37,7 @@ const NOTICE_KINDS=Object.freeze({reduced:{key:'vfxPanel.notice.reduced',tone:'i
 /** UI-only selection, popup and disclosure state; every edit uses the existing exposure transaction. */
 export class VfxInspector {
  /** `requestVisible(visible)` asks the shell to show or leave the VFX panel; the shell's dock host shows
-  #vfx-panel and calls panelVisible(), and derives the timeline's VFX rows from the panel's visibility. */
+  * #vfx-panel and calls panelVisible(), and derives the timeline's VFX rows from the panel's visibility. */
  constructor({editor,root,beforeEdit,onChange,onError,requestVisible,context=()=>''}){
   Object.assign(this,{editor,root,beforeEdit,onChange,onError,requestVisible,context});
   this.scope='selection';this.visible=false;this.bindings=new Map();this.abort=new AbortController();this.selected=null;this.effectNotices=new Map();
@@ -84,7 +84,7 @@ export class VfxInspector {
   if(JSON.stringify(this.effectNotices.get(clipId)??null)!==before&&this.visible)this.sync();
  }
  /** The engine's word on the frame on show (engine-stage.mjs, onReducedEffects): the effect clips a limit drew reduced
-  get the notice, every other clip loses it. */
+  * get the notice, every other clip loses it. */
  setReducedEffects(clipIds){
   const reduced=new Set(clipIds),key=NOTICE_KINDS.reduced.key;
   for(const [id,notices] of [...this.effectNotices])if(!reduced.has(id)&&notices.some(notice=>notice.key===key))this.setEffectNotice(id,null);
@@ -107,7 +107,7 @@ export class VfxInspector {
  targetIcon(target){if(target?.kind==='scene')return vfxIcon('camera');if(target?.kind==='segment')return icon('nodes');const object=this.editor.evaluatedFrame?.objects.find(o=>o.unique_id===target?.uid),figure=findFigureType(this.editor.report.figure_types, object?.figure_type_id);return figure?._styk?.movieclip?vfxIcon('movieclip'):icon('person');}
  ownerNameMessage(target){if(target.kind==='scene')return {messageKey:'vfxInspector.scene'};const object=this.editor.evaluatedFrame.objects.find(o=>o.unique_id===target.uid),figure=findFigureType(this.editor.report.figure_types, object?.figure_type_id),name=figure?.name||{messageKey:'vfxInspector.figure'};return target.kind==='segment'?{messageKey:'vfxInspector.segmentOwner',messageParams:{name,joint:{messageKey:'builderSurfaceUi.jointNumber',messageParams:{id:target.handleId}}}}:name;}
  ownerName(target){const name=this.ownerNameMessage(target);return typeof name==='string'?name:interfaceText(name.messageKey,name.messageParams);}
- ownerNameHTML(target){const name=this.ownerNameMessage(target);return typeof name==='string'?esc(name):messageHTML(name.messageKey,name.messageParams);}
+ ownerNameHTML(target){const name=this.ownerNameMessage(target);return typeof name==='string'?name:esc(name):messageHTML(name.messageKey,name.messageParams);}
  selectedEffect(){if(!this.visible)return null;if(this.selectedClip){const clip=this.editor.getVfxClips().find(c=>c.id===this.selectedClip);if(!clip||!clipActive(this.editor,clip))return null;const effects=this.editor.sampleVfxClip(clip.id),effect=effects.find(e=>e.id===this.selectedClipEffect)??effects[0];return effect?{target:clip.target,effect,clip:clip.id,includeAttached:clip.includeAttached}:null;}if(!this.selected)return null;const {target,id}=this.selected;if(!this.targets().some(t=>JSON.stringify(t)===JSON.stringify(target)))return null;const effect=this.editor.vfxEffects(target).find(e=>e.id===id);return effect?{target,effect:resolvedVfx(effect)}:null;}
  select(target,id){this.selected={target,id};this.selectedClip=null;this.editor._selectedVfxClip=null;this.editor._selectedVfxKey=null;if(target.kind==='figure')this.scope=this.editor.animationValue(target,'vfxScope')?'connected':'figure';this.editor._emit('vfx-selection');this.sync();this.onChange();}
  isSelected(target,id){return Boolean(this.selected)&&identity(target,id)===identity(this.selected.target,this.selected.id);}
@@ -302,7 +302,7 @@ export class VfxInspector {
  dragend(){groupDragEnd(this);this.dragged=null;this.clipDragged=null;for(const row of this.root.querySelectorAll('.is-dragging,.is-drop-target'))row.classList.remove('is-dragging','is-drop-target');}
  closePopup(){this.popup?.remove();this.popup=null;this.closePeek?.();this.closePeek=null;}
  /** Add one effect or preset to every current target (or the open group) as one undo step. The engine places a moment
-  preset at the playhead for its length, with its fades and keys (addVfxGroup). */
+  * preset at the playhead for its length, with its fades and keys (addVfxGroup). */
  addChoice(mode,key){
   this.beforeEdit();const targets=this.targets(),options={includeAttached:this.root.querySelector('#vfx-scope')?.value==='connected'};
   const mine=key.startsWith(MINE)&&vfxPresetStore.find(key.slice(MINE.length));if(key.startsWith(MINE)&&!mine)throw messageError(new Error(''), "errors.vfxInspector.thatPresetWasDeleted", {});
@@ -336,7 +336,7 @@ export class VfxInspector {
   // Effects in the groups a person reaches for (vfx-presentation.mjs, CATALOGUE); presets split into moments and lasting looks.
   const groups=mode==='presets'
    ?[{id:'moments',items:Object.keys(VFX_PRESETS).filter(name=>isMoment(name,VFX_PRESETS[name]))},{id:'looks',items:Object.keys(VFX_PRESETS).filter(name=>!isMoment(name,VFX_PRESETS[name]))}]
-     .map(group=>({...group,items:group.items.filter(name=>presetAvailable(VFX_PRESETS[name],scene,effectAvailable)).map(name=>{const p=VFX_PRESETS[name],timing=presetTiming(name,p);return {key:name,name,nameKey:presetMessages[name].nameKey,searchKeys:[presetMessages[name].nameKey,catalogueKey(group.id)],icon:p.icon,category:'Looks',count:p.effects.length,preview:hasEffectPreview(mode,name),
+     .map(group=>({...group,items:group.items.filter(name=>presetAvailable(VFX_PRESETS[name],scene,effectAvailable)).map(name=>{const p=VFX_PRESETS[name],timing=presetTiming(name,p);const nameKey=presetMessages[name]?.nameKey;return {key:name,name,nameKey,searchKeys:[nameKey??name,catalogueKey(group.id)],icon:p.icon,category:'Looks',count:p.effects.length,preview:hasEffectPreview(mode,name),
       meta:group.id==='moments'?(timing?{messageKey:'vfxPanel.catalog.momentFrames',messageParams:{count:timing.duration}}:{messageKey:'vfxPanel.catalog.moment'}):{messageKey:'vfxPanel.catalog.lookEffects',messageParams:{count:p.effects.length}}};})}))
    :catalogueSections(type=>effectAvailable(type,scene)).map(section=>({id:section.id,stills:section.stills,items:section.types.map(key=>({key,...VFX_REGISTRY[key],...effectMessages[key],searchKeys:[effectMessages[key].nameKey,catalogueKey(section.id)],aboutKey:`vfxPanel.about.${key}`,count:1,preview:hasEffectPreview(mode,key)}))}));
   // Generated effects show a rendered still, filled in as previews finish; the others their glyph in their category's tint.

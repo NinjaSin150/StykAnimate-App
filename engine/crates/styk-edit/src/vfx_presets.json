@@ -399,6 +399,700 @@
    ]
   ]
  },
+ "Punch impact": {
+  "effects": [
+   [
+    "tint",
+    {
+     "color": 16777215,
+     "mix": 0.35
+    }
+   ],
+   [
+    "blur",
+    {
+     "mode": 1,
+     "radius": 8,
+     "angle": 0
+    }
+   ],
+   [
+    "rgbSplit",
+    {
+     "amount": 6,
+     "angle": 0
+    }
+   ]
+  ],
+  "duration": 5,
+  "fadeOut": 2,
+  "keys": [
+   [
+    0,
+    "mix",
+    [
+     {
+      "tick": 0,
+      "value": 0.35
+     },
+     {
+      "tick": 3,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    1,
+    "radius",
+    [
+     {
+      "tick": 0,
+      "value": 9,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 5,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    2,
+    "amount",
+    [
+     {
+      "tick": 0,
+      "value": 7,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 5,
+      "value": 0
+     }
+    ]
+   ]
+  ]
+ },
+ "Kick impact": {
+  "effects": [
+   [
+    "tint",
+    {
+     "color": 16777215,
+     "mix": 0.5
+    }
+   ],
+   [
+    "blur",
+    {
+     "mode": 1,
+     "radius": 14,
+     "angle": 0
+    }
+   ],
+   [
+    "rgbSplit",
+    {
+     "amount": 12,
+     "angle": 0
+    }
+   ]
+  ],
+  "duration": 6,
+  "fadeOut": 2,
+  "keys": [
+   [
+    0,
+    "mix",
+    [
+     {
+      "tick": 0,
+      "value": 0.5
+     },
+     {
+      "tick": 3,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    1,
+    "radius",
+    [
+     {
+      "tick": 0,
+      "value": 15,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 6,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    2,
+    "amount",
+    [
+     {
+      "tick": 0,
+      "value": 13,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 6,
+      "value": 0
+     }
+    ]
+   ]
+  ]
+ },
+ "Heavy impact": {
+  "effects": [
+   [
+    "tint",
+    {
+     "color": 16777215,
+     "mix": 0.6
+    }
+   ],
+   [
+    "blur",
+    {
+     "mode": 1,
+     "radius": 18,
+     "angle": 0
+    }
+   ],
+   [
+    "rgbSplit",
+    {
+     "amount": 18,
+     "angle": 0
+    }
+   ],
+   [
+    "wave",
+    {
+     "strength": 10,
+     "wavelength": 90
+    }
+   ]
+  ],
+  "duration": 8,
+  "fadeOut": 3,
+  "keys": [
+   [
+    0,
+    "mix",
+    [
+     {
+      "tick": 0,
+      "value": 0.6
+     },
+     {
+      "tick": 4,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    1,
+    "radius",
+    [
+     {
+      "tick": 0,
+      "value": 19,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 8,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    2,
+    "amount",
+    [
+     {
+      "tick": 0,
+      "value": 19,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 8,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    3,
+    "strength",
+    [
+     {
+      "tick": 0,
+      "value": 10,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 8,
+      "value": 0
+     }
+    ]
+   ]
+  ]
+ },
+ "Ground slam": {
+  "effects": [
+   [
+    "tint",
+    {
+     "color": 16777215,
+     "mix": 0.5
+    }
+   ],
+   [
+    "rgbSplit",
+    {
+     "amount": 16,
+     "angle": 90
+    }
+   ],
+   [
+    "wave",
+    {
+     "strength": 16,
+     "wavelength": 140,
+     "angle": 90
+    }
+   ],
+   [
+    "noise",
+    {
+     "amount": 0.12
+    }
+   ]
+  ],
+  "duration": 12,
+  "fadeOut": 4,
+  "keys": [
+   [
+    0,
+    "mix",
+    [
+     {
+      "tick": 0,
+      "value": 0.5
+     },
+     {
+      "tick": 5,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    1,
+    "amount",
+    [
+     {
+      "tick": 0,
+      "value": 17,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 12,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    2,
+    "strength",
+    [
+     {
+      "tick": 0,
+      "value": 17,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 12,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    3,
+    "amount",
+    [
+     {
+      "tick": 0,
+      "value": 0.12
+     },
+     {
+      "tick": 12,
+      "value": 0
+     }
+    ]
+   ]
+  ]
+ },
+ "Impact sparks": {
+  "effects": [
+   [
+    "particles",
+    {
+     "look": 1,
+     "color": 16765530,
+     "emission": 1,
+     "count": 26,
+     "life": 14,
+     "size": 5,
+     "speed": 7,
+     "direction": 0,
+     "spread": 360,
+     "gravity": 0.4,
+     "endSize": 0.3,
+     "fadeIn": 0.05,
+     "fade": 0.3,
+     "stretch": 3,
+     "glow": 0.8
+    }
+   ]
+  ],
+  "duration": 8,
+  "fadeOut": 2
+ },
+ "Dust kick": {
+  "effects": [
+   [
+    "smoke",
+    {
+     "style": 4,
+     "color": 10129274,
+     "emission": 1,
+     "count": 16,
+     "size": 26,
+     "opacity": 0.8,
+     "rise": 0.8,
+     "life": 30,
+     "growth": 2.4,
+     "turbulence": 1.2
+    }
+   ]
+  ],
+  "duration": 14,
+  "fadeOut": 5
+ },
+ "Speed blur": {
+  "effects": [
+   [
+    "blur",
+    {
+     "mode": 1,
+     "radius": 16,
+     "angle": 0
+    }
+   ],
+   [
+    "rgbSplit",
+    {
+     "amount": 5,
+     "angle": 0
+    }
+   ]
+  ],
+  "duration": 6,
+  "fadeOut": 2,
+  "keys": [
+   [
+    0,
+    "radius",
+    [
+     {
+      "tick": 0,
+      "value": 16,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 6,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    1,
+    "amount",
+    [
+     {
+      "tick": 0,
+      "value": 6,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 6,
+      "value": 0
+     }
+    ]
+   ]
+  ]
+ },
+ "Power burst": {
+  "effects": [
+   [
+    "explosion",
+    {
+     "style": 7,
+     "color": 3651327,
+     "size": 1.2,
+     "intensity": 1.4,
+     "density": 1.2,
+     "debris": 0.6,
+     "smoke": 0.4,
+     "sparks": 1,
+     "flash": 1,
+     "ring": 1
+    }
+   ],
+   [
+    "glow",
+    {
+     "color": 6737151,
+     "radius": 20,
+     "intensity": 1.3
+    }
+   ]
+  ],
+  "duration": 10,
+  "fadeOut": 4,
+  "keys": [
+   [
+    1,
+    "intensity",
+    [
+     {
+      "tick": 0,
+      "value": 1.3,
+      "interpolation": "ease-out"
+     },
+     {
+      "tick": 10,
+      "value": 0
+     }
+    ]
+   ]
+  ]
+ },
+ "Energy charge": {
+  "effects": [
+   [
+    "aura",
+    {
+     "style": 1,
+     "color": 3651327
+    }
+   ],
+   [
+    "glow",
+    {
+     "color": 6737151,
+     "radius": 16,
+     "intensity": 1.2
+    }
+   ]
+  ],
+  "duration": 30,
+  "fadeIn": 3,
+  "fadeOut": 6,
+  "keys": [
+   [
+    0,
+    "intensity",
+    [
+     {
+      "tick": 0,
+      "value": 0.4
+     },
+     {
+      "tick": 30,
+      "value": 1.6
+     }
+    ]
+   ],
+   [
+    1,
+    "intensity",
+    [
+     {
+      "tick": 0,
+      "value": 1
+     },
+     {
+      "tick": 5,
+      "value": 1.6
+     },
+     {
+      "tick": 10,
+      "value": 1
+     },
+     {
+      "tick": 15,
+      "value": 1.6
+     },
+     {
+      "tick": 20,
+      "value": 1
+     },
+     {
+      "tick": 25,
+      "value": 1.6
+     },
+     {
+      "tick": 30,
+      "value": 1
+     }
+    ]
+   ]
+  ]
+ },
+ "Dark power up": {
+  "effects": [
+   [
+    "aura",
+    {
+     "style": 2,
+     "color": 16724016
+    }
+   ],
+   [
+    "noise",
+    {
+     "amount": 0.1
+    }
+   ],
+   [
+    "glow",
+    {
+     "color": 16732224,
+     "radius": 18,
+     "intensity": 1.4
+    }
+   ]
+  ],
+  "duration": 32,
+  "fadeIn": 3,
+  "fadeOut": 6,
+  "keys": [
+   [
+    0,
+    "intensity",
+    [
+     {
+      "tick": 0,
+      "value": 0.5
+     },
+     {
+      "tick": 32,
+      "value": 1.8
+     }
+    ]
+   ],
+   [
+    1,
+    "amount",
+    [
+     {
+      "tick": 0,
+      "value": 0.1
+     },
+     {
+      "tick": 32,
+      "value": 0
+     }
+    ]
+   ],
+   [
+    2,
+    "intensity",
+    [
+     {
+      "tick": 0,
+      "value": 1.2
+     },
+     {
+      "tick": 32,
+      "value": 2
+     }
+    ]
+   ]
+  ]
+ },
+ "Energy blast": {
+  "effects": [
+   [
+    "beam",
+    {
+     "style": 0,
+     "color": 5231359,
+     "width": 22,
+     "intensity": 1.6,
+     "charge": 8,
+     "travel": 4
+    }
+   ],
+   [
+    "glow",
+    {
+     "color": 6737151,
+     "radius": 14,
+     "intensity": 1.1
+    }
+   ]
+  ],
+  "duration": 22,
+  "fadeIn": 1,
+  "fadeOut": 3
+ },
+ "Lightning strike": {
+  "effects": [
+   [
+    "beam",
+    {
+     "style": 4,
+     "color": 10475775,
+     "width": 14,
+     "charge": 2,
+     "travel": 2,
+     "arcs": 5
+    }
+   ],
+   [
+    "tint",
+    {
+     "color": 16777215,
+     "mix": 0.5
+    }
+   ]
+  ],
+  "duration": 14,
+  "fadeOut": 4,
+  "keys": [
+   [
+    1,
+    "mix",
+    [
+     {
+      "tick": 0,
+      "value": 0.5
+     },
+     {
+      "tick": 6,
+      "value": 0
+     }
+    ]
+   ]
+  ]
+ },
  "Neon": {
   "effects": [
    [
@@ -832,6 +1526,96 @@
      "fade": 0.4,
      "twinkle": 0.6,
      "glow": 0.8
+    }
+   ]
+  ]
+ },
+ "Hero aura": {
+  "effects": [
+   [
+    "aura",
+    {
+     "style": 1,
+     "color": 3651327,
+     "intensity": 1.2
+    }
+   ],
+   [
+    "glow",
+    {
+     "color": 6737151,
+     "radius": 14,
+     "intensity": 1
+    }
+   ]
+  ]
+ },
+ "Villain aura": {
+  "effects": [
+   [
+    "aura",
+    {
+     "style": 2,
+     "color": 16724016,
+     "intensity": 1.2
+    }
+   ],
+   [
+    "glow",
+    {
+     "color": 16732224,
+     "radius": 14,
+     "intensity": 1
+    }
+   ]
+  ]
+ },
+ "Battle heat": {
+  "effects": [
+   [
+    "grade",
+    {
+     "temperature": 0.3,
+     "saturation": 1.15,
+     "contrast": 1.08
+    }
+   ],
+   [
+    "vignette",
+    {
+     "amount": 0.45,
+     "color": 1705221
+    }
+   ],
+   [
+    "noise",
+    {
+     "amount": 0.05
+    }
+   ]
+  ]
+ },
+ "Midnight duel": {
+  "effects": [
+   [
+    "grade",
+    {
+     "exposure": -0.35,
+     "temperature": -0.3,
+     "saturation": 0.9
+    }
+   ],
+   [
+    "vignette",
+    {
+     "amount": 0.5,
+     "color": 330270
+    }
+   ],
+   [
+    "noise",
+    {
+     "amount": 0.04
     }
    ]
   ]
